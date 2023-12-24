@@ -1,0 +1,79 @@
+﻿@page
+@model FAMPro.Pages.Assets.CreateModel
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h1>Add Asset</h1>
+
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="group-left">
+            <div class="form-group">
+                <label asp-for="FixedAssetsMaster.FixedAssetName" class="control-label"></label>
+                <input asp-for="FixedAssetsMaster.FixedAssetName" class="form-control" />
+                <span asp-validation-for="FixedAssetsMaster.FixedAssetName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="FixedAssetsMaster.AcquiredDate" class="control-label"></label>
+                <input asp-for="FixedAssetsMaster.AcquiredDate" class="form-control" />
+                <span asp-validation-for="FixedAssetsMaster.AcquiredDate" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="FixedAssetsMaster.Narration" class="control-label"></label>
+                <input asp-for="FixedAssetsMaster.Narration" class="form-control" />
+                <span asp-validation-for="FixedAssetsMaster.Narration" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="FixedAssetsMaster.Life" class="control-label"></label>
+                <input asp-for="FixedAssetsMaster.Life" class="form-control" />
+                <span asp-validation-for="FixedAssetsMaster.Life" class="text-danger"></span>
+            </div>
+            </div>
+            <div class="group-right">
+            
+            <div class="form-group">
+                <label asp-for="FixedAssetsMaster.AssignedTo" class="control-label"></label>
+                <input asp-for="FixedAssetsMaster.AssignedTo" class="form-control" />
+                <span asp-validation-for="FixedAssetsMaster.AssignedTo" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="FixedAssetsMaster.Price" class="control-label"></label>
+                <input asp-for="FixedAssetsMaster.Price" class="form-control" />
+                <span asp-validation-for="FixedAssetsMaster.Price" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="FixedAssetsMaster.Qty" class="control-label"></label>
+                <input asp-for="FixedAssetsMaster.Qty" class="form-control" />
+                <span asp-validation-for="FixedAssetsMaster.Qty" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="FixedAssetsMaster.DisposedQty" class="control-label"></label>
+                <input asp-for="FixedAssetsMaster.DisposedQty" class="form-control" />
+                <span asp-validation-for="FixedAssetsMaster.DisposedQty" class="text-danger"></span>
+            </div>
+            </div>
+            <div class="group-three">
+                <div class="form-group">
+                <label asp-for="FixedAssetsMaster.LocationId" class="control-label"></label>
+                <select asp-for="FixedAssetsMaster.LocationId" class ="form-control" asp-items="ViewBag.LocationId"></select>
+            </div>
+            </div>
+            <div class="form-group">
+                <input style="margin:10px 0 10px 0" type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a class="btn btn-primary" href="javascript: history.go(-1)">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

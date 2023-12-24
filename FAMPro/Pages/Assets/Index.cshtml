@@ -1,0 +1,80 @@
+﻿@page
+@model FAMPro.Pages.Assets.IndexModel
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Assets</h1>
+
+<p>
+    <a style="margin:10px 0 20px 0" class="btn btn-primary"asp-page="Create">Add Asset</a>
+    <a style="color:#040404" class="btn btn-link"href="/Location/Index">Locations</a>
+</p>
+
+<form>
+    
+    <p>
+        
+        <div class="smallones">
+        Location:
+        </div>
+       <select style="width:60px;float:left; margin: 0 10px 0 10px" class="form-control" asp-for="AssetLocation" asp-items="Model.Locations">
+            <option value="">All</option>
+        </select>
+        <div class="smallones">
+        From:
+        </div>
+        <input style="width:150px;float:left; margin: 0 10px 0 10px" class="form-control" type="date" asp-for="FromDate" />
+        <div class="smallones">
+        To:
+        </div>
+        <input style="width:150px;float:left; margin: 0 10px 0 10px" class="form-control" type="date" asp-for="ToDate" />
+        <input style="margin-top:1px" class="btn btn-primary" type="submit" value="Filter" />
+    </p>
+</form>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.FixedAssetsMaster[0].FixedAssetName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.FixedAssetsMaster[0].Price)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.FixedAssetsMaster[0].Qty)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.FixedAssetsMaster[0].AcquiredDate)
+            </th>
+            
+            
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model.FixedAssetsMaster) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.FixedAssetName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Price)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Qty)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.AcquiredDate)
+            </td>           
+            <td>
+                <a class="btn btn-primary" asp-page="./Edit" asp-route-id="@item.FixedAssetId">Edit</a> |
+                <a class="btn btn-primary" asp-page="./Details" asp-route-id="@item.FixedAssetId">Details</a> |
+                <a class="btn btn-danger" asp-page="./Delete" asp-route-id="@item.FixedAssetId">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

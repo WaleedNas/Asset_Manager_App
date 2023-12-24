@@ -1,0 +1,38 @@
+﻿@page
+@model FAMPro.Pages.Account.LoginModel
+@{
+	Layout = "_Layout";
+}
+
+<div class="login">
+	<form method="post">
+		<div class="text-danger" asp-validation-summary="ModelOnly"></div>
+		<div class="login-row">
+			<div class="col-2">
+				<label style="color:#fff" asp-for="Credential.UserName"></label>
+			</div>
+			<div class="col-5" style="margin-left:50px">
+				<input type="text" asp-for="Credential.UserName" class="form-control" />
+			</div>
+		</div>
+		<div class="login-row">
+			<div style="margin:10px 0 10px 0; color:#fff" class="col-2">
+				<label asp-for="Credential.Password"></label>
+			</div>
+			<div style="margin:10px 0 10px 0; margin-left:50px" class="col-5">
+				<input type="password" asp-for="Credential.Password" class="form-control" />
+			</div>
+		</div>
+		<div>
+			<span style="" class="text-danger" asp-validation-for="Credential.UserName"></span><br />
+			<span style="" class="text-danger" asp-validation-for="Credential.Password"></span>
+			</div>
+		<div>
+			<div style="margin: 10px 0 0 0">
+				<input type="submit" value="Log in" class="btn btn-primary" />
+			</div>
+			
+		</div>
+
+	</form>
+</div>

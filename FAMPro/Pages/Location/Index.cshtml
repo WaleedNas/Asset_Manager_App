@@ -1,0 +1,36 @@
+﻿@page
+@model FAMPro.Pages.Location.IndexModel
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Locations</h1>
+
+<p>
+    <a style="margin:10px 0 10px 0" class="btn btn-primary"asp-page="Create">Add Location</a>
+    <a style="color:#040404" class="btn btn-link"href="/Assets/Index">Assets</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.LocationMaster[0].LocationName)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model.LocationMaster) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.LocationName)
+            </td>
+            <td>
+                <a class="btn btn-primary" asp-page="./Edit" asp-route-id="@item.LocationId">Edit</a> |
+                <a class="btn btn-danger" asp-page="./Delete" asp-route-id="@item.LocationId">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
